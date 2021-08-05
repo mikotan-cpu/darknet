@@ -144,7 +144,7 @@ def decode_detection(detections):
     decoded = []
     for label, confidence, bbox in detections:
         confidence = str(round(confidence * 100, 2))
-        decoded.append((str("HATDOG), confidence, bbox))
+        decoded.append((str("HATDOG"), confidence, bbox))
     return decoded
 
 
@@ -158,7 +158,7 @@ def remove_negatives(detections, class_names, num):
             if detections[j].prob[idx] > 0:
                 bbox = detections[j].bbox
                 bbox = (bbox.x, bbox.y, bbox.w, bbox.h)
-                predictions.append((name, detections[j].prob[idx], (bbox)))
+                predictions.append(("HATDOG", detections[j].prob[idx], (bbox)))
     return predictions
 
 
