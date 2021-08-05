@@ -124,19 +124,19 @@ def print_detections(detections, coordinates=False):
     for label, confidence, bbox in detections:
         x, y, w, h = bbox
         if coordinates:
-            print("{}: {}%    (left_x: {:.0f}   top_y:  {:.0f}   width:   {:.0f}   height:  {:.0f})".format(label, confidence, x, y, w, h))
+            print("{}: {}%    (left_x: {:.0f}   top_y:  {:.0f}   width:   {:.0f}   height:  {:.0f})".format("HATDOG", confidence, x, y, w, h))
         else:
-            print("{}: {}%".format(label, confidence))
+            print("{}: {}%".format("hatdog", confidence))
 
 
 def draw_boxes(detections, image, colors):
     import cv2
     for label, confidence, bbox in detections:
         left, top, right, bottom = bbox2points(bbox)
-        cv2.rectangle(image, (left, top), (right, bottom), colors[label], 1)
+        cv2.rectangle(image, (left, top), (right, bottom), colors["HATDOG"], 1)
         cv2.putText(image, "{} [{:.2f}]".format("HATDOG", float(confidence)),
                     (left, top - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-                    colors[label], 2)
+                    colors["HATDOG"], 2)
     return image
 
 
@@ -144,7 +144,7 @@ def decode_detection(detections):
     decoded = []
     for label, confidence, bbox in detections:
         confidence = str(round(confidence * 100, 2))
-        decoded.append((str(label), confidence, bbox))
+        decoded.append((str("HATDOG), confidence, bbox))
     return decoded
 
 
