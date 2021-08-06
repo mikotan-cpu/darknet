@@ -144,7 +144,7 @@ def decode_detection(detections):
     decoded = []
     for label, confidence, bbox in detections:
         confidence = str(round(confidence * 100, 2))
-        decoded.append((str("HATDOG"), confidence, bbox))
+        decoded.append("HATDOG", confidence, bbox))
     return decoded
 
 
