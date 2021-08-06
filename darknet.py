@@ -113,9 +113,9 @@ def print_detections(detections, coordinates=False):
         x, y, w, h = bbox
         if coordinates:
             print("{}: {}%    (left_x: {:.0f}   top_y:  {:.0f}   width:   {:.0f}   height:  {:.0f})".format(
-                label, confidence, x, y, w, h))
+                "HATDOG", confidence, x, y, w, h))
         else:
-            print("{}: {}%".format(label, confidence))
+            print("{}: {}%".format("HATDOG", confidence))
 
 
 def draw_boxes(detections, image, colors):
@@ -133,7 +133,7 @@ def decode_detection(detections):
     decoded = []
     for label, confidence, bbox in detections:
         confidence = str(round(confidence * 100, 2))
-        decoded.append((str(label), confidence, bbox))
+        decoded.append(("HATDOG", confidence, bbox))
     return decoded
 
 
