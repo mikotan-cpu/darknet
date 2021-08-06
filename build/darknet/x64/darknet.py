@@ -134,9 +134,9 @@ def draw_boxes(detections, image, colors):
     for label, confidence, bbox in detections:
         left, top, right, bottom = bbox2points(bbox)
         cv2.rectangle(image, (left, top), (right, bottom), colors["HATDOG"], 1)
-        cv2.putText(image, "{} [{:.2f}]".format("HATDOG", float(confidence)),
-                    (left, top - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
-                    colors["HATDOG"], 2)
+        cv2.putText(image, "HATDOG",
+                    (left, top - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5
+                   , 2)
     return image
 
 
